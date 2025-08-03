@@ -26,7 +26,7 @@ const AppSidebar = () => {
   const items = [
     {
       title: 'Teachers',
-      url: '/',
+      url: '/teachers',
       icon: ShieldUser,
     },
     {
@@ -73,7 +73,7 @@ const AppSidebar = () => {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href='/'>
-                <span>Logo</span>
+                <span>Zone LC</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
