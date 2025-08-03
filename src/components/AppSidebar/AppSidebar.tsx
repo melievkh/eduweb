@@ -1,4 +1,13 @@
-import { Home, TableProperties, Users } from 'lucide-react';
+import {
+  BookOpenCheck,
+  CalendarSync,
+  ChartNoAxesCombined,
+  CreditCard,
+  Settings,
+  ShieldUser,
+  TableProperties,
+  Users,
+} from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -7,6 +16,7 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '../ui/sidebar';
@@ -15,19 +25,44 @@ import Link from 'next/link';
 const AppSidebar = () => {
   const items = [
     {
-      title: 'Home',
+      title: 'Teachers',
       url: '/',
-      icon: Home,
+      icon: ShieldUser,
     },
     {
       title: 'Courses',
-      url: '/',
+      url: '#',
       icon: TableProperties,
     },
     {
       title: 'Students',
-      url: '/',
+      url: '#',
       icon: Users,
+    },
+    {
+      title: 'Payments',
+      url: '#',
+      icon: CreditCard,
+    },
+    {
+      title: 'Schedule',
+      url: '#',
+      icon: CalendarSync,
+    },
+    {
+      title: 'Statistics',
+      url: '#',
+      icon: ChartNoAxesCombined,
+    },
+    {
+      title: 'Settings',
+      url: '#',
+      icon: Settings,
+    },
+    {
+      title: 'Exams',
+      url: '#',
+      icon: BookOpenCheck,
     },
   ];
 
@@ -57,6 +92,15 @@ const AppSidebar = () => {
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
+                  <SidebarMenuBadge>
+                    {item.title === 'Teachers'
+                      ? 24
+                      : item.title === 'Students'
+                      ? 21
+                      : item.title === 'Courses'
+                      ? 12
+                      : null}
+                  </SidebarMenuBadge>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
