@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
 import ThemeMode from './ThemeMode';
@@ -14,7 +13,6 @@ const Navbar = () => {
     <nav className='p-4 flex items-center justify-between'>
       <SidebarTrigger />
       <div className='flex items-center gap-4'>
-        <Link href='/'>Dashboard</Link>
         <ThemeMode setTheme={setTheme} />
         <UserMenu />
       </div>

@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
-import { AppSidebar, Navbar } from '@/components';
+
+import { AdminLayout } from '@/components';
 import { ThemeProvider } from '@/components/theme-provider';
-import { SidebarProvider } from '@/components/ui/sidebar';
-import { cookies } from 'next/headers';
+import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,8 +25,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get('sidebar_state')?.value === 'true';
+  const layout = 'admin';
 
   return (
     <html lang='en' suppressHydrationWarning>
@@ -40,13 +38,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider defaultOpen={defaultOpen}>
-            <AppSidebar />
-            <main className='w-full'>
-              <Navbar />
-              <div className='px-4'>{children}</div>
-            </main>
-          </SidebarProvider>
+          {layout === 'admin' && <AdminLayout>{children}</AdminLayout>}
         </ThemeProvider>
       </body>
     </html>

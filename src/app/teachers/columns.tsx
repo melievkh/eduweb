@@ -1,5 +1,6 @@
 'use client';
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -8,7 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { cn } from '@/lib/utils';
 import { ColumnDef } from '@tanstack/react-table';
 import { Edit, MoreHorizontal, Trash } from 'lucide-react';
 
@@ -16,64 +16,73 @@ export type Teacher = {
   id: string;
   fullname: string;
   email?: '';
-  phoneNumber: string;
-  isActive: boolean;
+  phone_number: string;
   profession: 'maths' | 'english' | 'biology' | 'chemistry' | 'native'[];
-  profileImage?: '';
-  startDate?: Date;
-  dateOfBirth?: Date;
+  start_date?: Date;
+  date_of_birth?: string;
+  profile_image?: string;
+  date_joined: string;
 };
 
 export const teachersData: Teacher[] = [
   {
-    id: '123',
+    id: '1',
     fullname: 'Jasur',
-    phoneNumber: '902334122',
-    isActive: true,
+    phone_number: '902334122',
     profession: 'english',
+    date_of_birth: '1997.22.09',
+    date_joined: '2025.22.09',
+    profile_image:
+      'https://yt3.googleusercontent.com/MwOv3-G2bIfI1yHJovHJeDCHYW0p-PK2pYCTlSqOem-A87cTdBPBtxJQ9Fofz9XSR6TlOnDxGbw=s900-c-k-c0x00ffffff-no-rj',
   },
   {
-    id: '1233',
+    id: '2',
     fullname: 'Akbar Falonchiyev',
-    phoneNumber: '902334122',
-    isActive: false,
+    phone_number: '902334122',
     profession: 'biology',
+    date_of_birth: '1997.22.09',
+    date_joined: '2025.22.09',
   },
 ];
 
 export const columns: ColumnDef<Teacher>[] = [
   {
-    accessorKey: 'fullname',
-    header: 'Fullname',
-  },
-  {
-    accessorKey: 'phoneNumber',
-    header: 'Phone Number',
-  },
-  {
-    accessorKey: 'isActive',
-    header: 'Status',
+    header: 'ID',
     cell: ({ row }) => {
-      const status = row.getValue('isActive');
+      return <span>{row.index + 1}.</span>;
+    },
+  },
+  {
+    accessorKey: 'profile_image',
+    header: 'Photo',
+    cell: ({ row }) => {
+      const { profile_image, fullname } = row.original;
 
       return (
-        <div
-          className={cn(
-            `p-1 rounded-md w-max text-xs`,
-            status === true && 'bg-green-400/40',
-            status === false && 'bg-red-500/40'
-          )}
-        >
-          <span>{status ? 'active' : 'no active'}</span>
-        </div>
+        <Avatar className='h-10 w-10'>
+          <AvatarImage src={profile_image} alt={fullname} />
+          <AvatarFallback>
+            {fullname
+              .split(' ')
+              .map((word) => word[0])
+              .join('')
+              .toUpperCase()}
+          </AvatarFallback>
+        </Avatar>
       );
     },
   },
   {
+    accessorKey: 'fullname',
+    header: 'Fullname',
+  },
+  {
+    accessorKey: 'phone_number',
+    header: 'Phone Number',
+  },
+  {
     id: 'actions',
-    cell: ({ row }) => {
-      const payment = row.original;
-
+    cell: () => {
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
