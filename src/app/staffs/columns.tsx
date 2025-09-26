@@ -1,5 +1,8 @@
 'use client';
 
+import { ColumnDef } from '@tanstack/react-table';
+import { Edit, MoreHorizontal, Trash } from 'lucide-react';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -9,22 +12,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ColumnDef } from '@tanstack/react-table';
-import { Edit, MoreHorizontal, Trash } from 'lucide-react';
 
-export type Teacher = {
+export type Staff = {
   id: string;
-  fullname: string;
-  email?: '';
-  phone_number: string;
-  profession: 'maths' | 'english' | 'biology' | 'chemistry' | 'native'[];
-  start_date?: Date;
-  date_of_birth?: string;
-  profile_image?: string;
   date_joined: string;
+  date_of_birth?: string;
+  email?: '';
+  fullname: string;
+  phone_number: string;
+  profession: string;
+  profile_image?: string;
+  start_date?: Date;
 };
 
-export const teachersData: Teacher[] = [
+export const staffsData: Staff[] = [
   {
     id: '1',
     fullname: 'Jasur',
@@ -45,7 +46,7 @@ export const teachersData: Teacher[] = [
   },
 ];
 
-export const columns: ColumnDef<Teacher>[] = [
+export const columns: ColumnDef<Staff>[] = [
   {
     header: 'ID',
     cell: ({ row }) => {

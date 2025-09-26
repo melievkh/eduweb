@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   BookOpenCheck,
@@ -11,6 +12,7 @@ import {
   TableProperties,
   Users,
 } from 'lucide-react';
+
 import {
   Sidebar,
   SidebarContent,
@@ -23,7 +25,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '../ui/sidebar';
-import Link from 'next/link';
 
 const AppSidebar = () => {
   const pathname = usePathname();

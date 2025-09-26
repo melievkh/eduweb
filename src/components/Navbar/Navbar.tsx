@@ -2,9 +2,9 @@
 
 import { useTheme } from 'next-themes';
 
+import { SidebarTrigger } from '../ui/sidebar';
 import ThemeMode from './ThemeMode';
 import UserMenu from './UserMenu';
-import { SidebarTrigger } from '../ui/sidebar';
 
 const Navbar = () => {
   const { setTheme } = useTheme();

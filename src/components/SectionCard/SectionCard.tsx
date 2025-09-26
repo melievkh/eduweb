@@ -1,3 +1,5 @@
+import { TrendingDown, TrendingUp } from 'lucide-react';
+
 import { Badge } from '@/components/ui/badge';
 import {
   Card,
@@ -7,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { TrendingDown, TrendingUp } from 'lucide-react';
 
 const SectionCards = () => {
   return (
@@ -55,7 +56,7 @@ const SectionCards = () => {
       </Card>
       <Card className='@container/card'>
         <CardHeader>
-          <CardDescription>Total Teachers</CardDescription>
+          <CardDescription>Total Staffs</CardDescription>
           <CardTitle className='text-2xl font-semibold tabular-nums @[250px]/card:text-3xl'>
             18
           </CardTitle>
