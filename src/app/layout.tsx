@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-
-import { AdminLayout } from '@/components';
-import { ThemeProvider } from '@/components/theme-provider';
+import { ToastContainer } from 'react-toastify';
 import './globals.css';
+
+import { ThemeProvider } from '@/components/theme-provider';
+import LoginPage from './(auth)/login/page';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -38,7 +39,10 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {layout === 'admin' && <AdminLayout>{children}</AdminLayout>}
+          <ToastContainer />
+          <LoginPage />
+          {/* {children} */}
+          {/* {layout === 'admin' && <AdminLayout>{children}</AdminLayout>} */}
         </ThemeProvider>
       </body>
     </html>

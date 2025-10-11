@@ -21,7 +21,6 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '../ui/sidebar';
@@ -30,7 +29,7 @@ const AppSidebar = () => {
   const pathname = usePathname();
 
   const items = [
-    { title: 'Main page', url: '/', icon: House },
+    { title: 'Statistics', url: '/', icon: House },
     { title: 'Staffs', url: '/staffs', icon: ShieldUser },
     { title: 'Groups', url: '/groups', icon: TableProperties },
     { title: 'Students', url: '/students', icon: Users },
@@ -67,25 +66,12 @@ const AppSidebar = () => {
                   >
                     <SidebarMenuButton asChild>
                       <Link href={item.url}>
-                        <item.icon
-                          className={`w-20 h-20 sm:w-6 sm:h-6 md:w-7 md:h-7 ${
-                            isActive ? 'text-primary' : ''
-                          }`}
-                        />
+                        <item.icon className={`w-20 h-20 sm:w-6 sm:h-6 md:w-7 md:h-7 ${isActive ? 'text-primary' : ''}`} />
                         <span className='text-sm sm:text-base md:text-[16px]'>
                           {item.title}
                         </span>
                       </Link>
                     </SidebarMenuButton>
-                    <SidebarMenuBadge>
-                      {item.title === 'Staff'
-                        ? 24
-                        : item.title === 'Students'
-                        ? 21
-                        : item.title === 'Courses'
-                        ? 12
-                        : null}
-                    </SidebarMenuBadge>
                   </SidebarMenuItem>
                 );
               })}

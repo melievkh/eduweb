@@ -132,6 +132,7 @@ const chartConfig = {
     color: 'var(--primary)',
   },
 } satisfies ChartConfig;
+
 const ChartAreaInteractive = () => {
   const isMobile = useIsMobile();
   const [timeRange, setTimeRange] = React.useState('90d');
