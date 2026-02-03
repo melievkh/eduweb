@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { ToastContainer } from 'react-toastify';
-import './globals.css';
+import { ThemeProvider } from 'next-themes';
 
-import { ThemeProvider } from '@/components/theme-provider';
-import LoginPage from './(auth)/login/page';
+import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,7 +24,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const layout = 'admin';
 
   return (
     <html lang='en' suppressHydrationWarning>
@@ -39,10 +36,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ToastContainer />
-          <LoginPage />
-          {/* {children} */}
-          {/* {layout === 'admin' && <AdminLayout>{children}</AdminLayout>} */}
+          {children}
         </ThemeProvider>
       </body>
     </html>

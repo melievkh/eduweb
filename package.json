@@ -21,6 +21,8 @@
     "@radix-ui/react-tooltip": "^1.2.7",
     "@reduxjs/toolkit": "^2.9.0",
     "@tanstack/react-table": "^8.21.3",
+    "@types/redux-persist": "^4.0.0",
+    "axios": "^1.12.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide": "^0.536.0",
@@ -32,12 +34,14 @@
     "react-redux": "^9.2.0",
     "react-toastify": "^11.0.5",
     "recharts": "^2.15.4",
+    "redux-persist": "^6.0.0",
     "shadcn": "^2.10.0",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/axios": "^0.9.36",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
